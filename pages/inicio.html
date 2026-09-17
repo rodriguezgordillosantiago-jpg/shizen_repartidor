@@ -11,8 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/inicio.css?v=scale-2" />
-    <link rel="stylesheet" href="styles/navigation.css?v=compact-2" />
+    <link rel="stylesheet" href="styles/inicio.css?v=scale-3" />
+    <link rel="stylesheet" href="styles/navigation.css?v=scale-3" />
   </head>
   <body>
     <div class="scroll" id="content">
@@ -123,11 +123,16 @@
     <!-- Chat root -->
     <div id="chat-root"></div>
 
-    <script src="../js/data.js"></script>
+    <script src="../js/data.js?v=stats-1"></script>
     <script src="../js/chat.js"></script>
     <script>
       async function render() {
         const perfil = getPerfil();
+        try {
+          Object.assign(perfil, await cargarEstadisticas());
+        } catch (error) {
+          console.error(error);
+        }
         const [activeResult, availableResult] = await Promise.all([cargarEntregas("active"), cargarEntregas("available")]);
         const activos = activeResult.items;
         const disponibles = availableResult.items;

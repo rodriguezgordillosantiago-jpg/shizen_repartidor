@@ -40,6 +40,32 @@ function generarCodigoCliente(int $idPedido): string {
 
 $action = (string)($_POST['action'] ?? $_GET['action'] ?? 'list');
 
+if ($action === 'stats') {
+    $stmt = $db->prepare(
+        'SELECT u.nombre, u.apellido,
+                COUNT(CASE WHEN e.fecha_entrega IS NOT NULL AND DATE(e.fecha_entrega) = CURDATE() THEN 1 END) AS entregas_hoy,
+                COALESCE(SUM(CASE WHEN e.fecha_entrega IS NOT NULL AND DATE(e.fecha_entrega) = CURDATE() THEN c.total ELSE 0 END), 0) AS ganancias_hoy,
+                COALESCE(AVG(cr.puntuacion), 0) AS calificacion
+           FROM repartidor r
+           JOIN usuario u ON u.id_usuario = r.id_usuario
+           LEFT JOIN entrega e ON e.id_repartidor = r.id_repartidor
+           LEFT JOIN compra c ON c.id_compra = e.id_compra
+           LEFT JOIN calificacion_repartidor cr ON cr.id_repartidor = r.id_repartidor
+          WHERE r.id_repartidor = :courier
+          GROUP BY r.id_repartidor, u.nombre, u.apellido'
+    );
+    $stmt->execute(['courier' => $courierId]);
+    $stats = $stmt->fetch() ?: [];
+    echo json_encode([
+        'nombre' => $stats['nombre'] ?? '',
+        'apellido' => $stats['apellido'] ?? '',
+        'entregasHoy' => (int)($stats['entregas_hoy'] ?? 0),
+        'gananciasHoy' => (float)($stats['ganancias_hoy'] ?? 0),
+        'calificacion' => round((float)($stats['calificacion'] ?? 0), 1),
+    ]);
+    exit;
+}
+
 // ─── Toggle disponibilidad ────────────────────────────────────────────────────
 if ($action === 'toggle') {
     $_SESSION['repartidor_online'] = !((bool)($_SESSION['repartidor_online'] ?? true));

@@ -158,6 +158,17 @@ async function cargarEntregas(tipo) {
   return response.json();
 }
 
+async function cargarEstadisticas() {
+  const response = await fetch("../php/entregas.php?action=stats", {
+    credentials: "same-origin",
+  });
+  const result = await response.json();
+  if (!response.ok) {
+    throw new Error(result.error || "No fue posible cargar las estadísticas.");
+  }
+  return result;
+}
+
 async function actualizarEntrega(action, id) {
   const body = new URLSearchParams({
     action,
