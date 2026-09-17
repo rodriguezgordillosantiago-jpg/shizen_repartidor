@@ -180,44 +180,6 @@
         </div>
       </div>
 
-      <!-- Categories -->
-      <div style="padding:20px 16px 0">
-        <h2 style="margin:0 0 12px;font-size:15px;font-weight:800;color:#1a1a1a">Tipos de entrega</h2>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
-          ${[
-            {
-              nombre: "Restaurantes",
-              icono: "🍔",
-              bg: "#fff7ed",
-            },
-            {
-              nombre: "Mercado",
-              icono: "🛒",
-              bg: "#f0fdf4",
-            },
-            {
-              nombre: "Courier",
-              icono: "📦",
-              bg: "#eff6ff",
-            },
-            {
-              nombre: "Farmacia",
-              icono: "💊",
-              bg: "#faf5ff",
-            },
-          ]
-            .map(
-              (c) => `
-            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer">
-              <div style="width:56px;height:56px;border-radius:16px;background:${c.bg};
-                display:flex;align-items:center;justify-content:center;font-size:24px;
-                box-shadow:0 2px 6px rgba(0,0,0,.08)">${c.icono}</div>
-              <p style="margin:0;font-size:10px;color:#4b5563;font-weight:600;text-align:center;line-height:1.3">${c.nombre}</p>
-            </div>`,
-            )
-            .join("")}
-        </div>
-      </div>
 
       <!-- Available orders preview -->
       <div style="padding:20px 16px 0">

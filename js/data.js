@@ -1,22 +1,9 @@
 /* ── Shizen — shared data layer (localStorage) ─────────────────── */
 
 const _DEFAULTS = {
-  activos: [
-    { id:"P001", cliente:"Laura Gómez",     avatar:"https://i.pravatar.cc/150?img=5",  origen:"McDonald's Chapinero",    destino:"Cra 13 #67-45, Chapinero",   items:["Big Mac x2","Papas grandes","Coca-Cola"],           total:52000, estado:"aceptado",  tipo:"asap",      hora:"Hace 8 min",  distancia:"1.2 km", ganancia:4800 },
-    { id:"P002", cliente:"Carlos Ruiz",     avatar:"https://i.pravatar.cc/150?img=12", origen:"Éxito Suba",              destino:"Av. Suba #115-30, Suba",      items:["Mercado básico","Productos de aseo"],               total:87000, estado:"en_camino", tipo:"asap",      hora:"Hace 22 min", distancia:"3.5 km", ganancia:6200 },
-    { id:"P003", cliente:"Sofía Martínez",  avatar:"https://i.pravatar.cc/150?img=9",  origen:"Farmacia Cruz Verde",     destino:"Cll 100 #14-23, Usaquén",     items:["Medicamentos fórmula","Vitaminas"],                 total:34500, estado:"aceptado",  tipo:"scheduled", hora:"12:30 PM",    distancia:"2.1 km", ganancia:3900 },
-  ],
-  disponibles: [
-    { id:"P004", cliente:"Andrés Torres",   avatar:"https://i.pravatar.cc/150?img=3",  origen:"Dominos Pizza Teusaquillo", destino:"Cra 24 #45-10, Teusaquillo", items:["Pizza Personal","Alitas x8","Gaseosa 2L"],          total:68000, estado:"disponible", tipo:"asap",      hora:"Ahora",       distancia:"1.8 km", ganancia:5500 },
-    { id:"P005", cliente:"Valentina Herrera",avatar:"https://i.pravatar.cc/150?img=16",origen:"Rappi Turbo Kennedy",      destino:"Av. 68 #38-72, Kennedy",      items:["Encomienda pequeña"],                               total:15000, estado:"disponible", tipo:"asap",      hora:"Hace 2 min",  distancia:"0.9 km", ganancia:3200 },
-    { id:"P006", cliente:"Diego Morales",   avatar:"https://i.pravatar.cc/150?img=7",  origen:"Subway Engativá",         destino:"Cll 68 #93-15, Engativá",     items:["Sub 30cm Pollo","Sub 15cm Atún","Cookies x2"],      total:45000, estado:"disponible", tipo:"scheduled", hora:"1:15 PM",     distancia:"2.7 km", ganancia:4100 },
-  ],
-  historial: [
-    { id:"H001", cliente:"María López",     avatar:"https://i.pravatar.cc/150?img=20", origen:"KFC Chapinero",           destino:"Cra 11 #72-30",               items:["Balde familiar"],                                  total:74000, estado:"entregado",  tipo:"asap", hora:"Hoy 10:15 AM", distancia:"2.0 km", ganancia:5800 },
-    { id:"H002", cliente:"Julián Castro",   avatar:"https://i.pravatar.cc/150?img=33", origen:"Presto Suba",             destino:"Av. Suba #91-10",             items:["Combo 2 personas"],                                total:38000, estado:"cancelado",  tipo:"asap", hora:"Hoy 9:40 AM",  distancia:"1.5 km", ganancia:0 },
-    { id:"H003", cliente:"Ana Jiménez",     avatar:"https://i.pravatar.cc/150?img=44", origen:"Drogas La Rebaja",        destino:"Cll 45 #27-18",               items:["Antibióticos","Suero"],                             total:22000, estado:"entregado",  tipo:"asap", hora:"Hoy 9:05 AM",  distancia:"0.8 km", ganancia:2900 },
-    { id:"H004", cliente:"Roberto Peña",    avatar:"https://i.pravatar.cc/150?img=52", origen:"El Corral Usaquén",       destino:"Cra 7 #115-40",               items:["Burger + Papas x3"],                               total:93000, estado:"entregado",  tipo:"asap", hora:"Ayer 7:30 PM", distancia:"3.2 km", ganancia:7200 },
-  ],
+  activos: [],
+  disponibles: [],
+  historial: [],
   perfil: {
     nombre:"Santiago", apellido:"Vargas", telefono:"310 456 7890",
     localidad:"Chapinero", vehiculo:"Moto", calificacion:4.8,
