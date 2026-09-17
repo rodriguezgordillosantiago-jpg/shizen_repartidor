@@ -86,7 +86,7 @@ body { background: #f9fefb; color: #1a1a1a; font-family: "Inter", sans-serif; }
 .actions button,
 .btn-green,
 .btn-gray { min-height: 44px; padding: 10px 14px; font-size: 13px; }
-.badge { background: #3a8c3f; }
+.badge { display: none !important; }
 .field { font-family: "Inter", sans-serif; border-color: #c8e6c9; }
 .field:focus { border-color: #3a8c3f; }
 [style*="#f97316"] { color: #3a8c3f !important; }
