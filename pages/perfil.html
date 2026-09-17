@@ -219,7 +219,7 @@
                 font-size: 13px;
                 font-weight: 600;
                 cursor: pointer;
-                font-family: 'Inter', sans-serif;
+                font-family: &quot;Inter&quot;, sans-serif;
               "
             >
               <svg
@@ -265,7 +265,12 @@
                 maxlength="100"
                 required
                 readonly
-                style="background: #f9fafb; color: #374151; border-color: #e5e7eb; transition: all 0.2s;"
+                style="
+                  background: #f9fafb;
+                  color: #374151;
+                  border-color: #e5e7eb;
+                  transition: all 0.2s;
+                "
               />
             </label>
             <label
@@ -282,7 +287,12 @@
                 maxlength="100"
                 required
                 readonly
-                style="background: #f9fafb; color: #374151; border-color: #e5e7eb; transition: all 0.2s;"
+                style="
+                  background: #f9fafb;
+                  color: #374151;
+                  border-color: #e5e7eb;
+                  transition: all 0.2s;
+                "
               />
             </label>
             <label
@@ -297,7 +307,11 @@
                 type="email"
                 value="{{EMAIL}}"
                 readonly
-                style="background: #f9fafb; color: #6b7280; border-color: #e5e7eb"
+                style="
+                  background: #f9fafb;
+                  color: #6b7280;
+                  border-color: #e5e7eb;
+                "
               />
             </label>
             <input
@@ -748,13 +762,23 @@
       let editando = false;
       function toggleEdicionPerfil() {
         editando = !editando;
-        const btnToggle = document.getElementById("btn-toggle-edit");
-        const btnText = document.getElementById("btn-toggle-edit-text");
-        const btnGuardar = document.getElementById("btn-guardar-perfil");
-        const inputNombre = document.getElementById("campo-nombre");
-        const inputApellido = document.getElementById("campo-apellido");
+        const btnToggle = document.getElementById(
+          "btn-toggle-edit",
+        );
+        const btnText = document.getElementById(
+          "btn-toggle-edit-text",
+        );
+        const btnGuardar = document.getElementById(
+          "btn-guardar-perfil",
+        );
+        const inputNombre =
+          document.getElementById("campo-nombre");
+        const inputApellido = document.getElementById(
+          "campo-apellido",
+        );
 
-        if (!btnToggle || !inputNombre || !inputApellido) return;
+        if (!btnToggle || !inputNombre || !inputApellido)
+          return;
 
         if (editando) {
           inputNombre.removeAttribute("readonly");
