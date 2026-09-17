@@ -10,8 +10,8 @@
   padding: 0 8px;
   transform: translateX(-50%);
   background: #fff;
-  border-top: 1px solid rgba(0, 0, 0, .08);
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, .06);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .bottom-nav .nav-item,
@@ -63,35 +63,107 @@
   background: #6b7280;
   border: 3px solid #f3f4f6;
   border-radius: 50%;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, .18);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.18);
 }
 
-.nav-status-toggle.is-online { color: #4c9540; }
-.nav-status-toggle.is-online .nav-status-icon { background: #4c9540; }
-.nav-status-toggle:focus-visible { outline: 2px solid #4c9540; outline-offset: -3px; }
+.nav-status-toggle.is-online {
+  color: #4c9540;
+}
+.nav-status-toggle.is-online .nav-status-icon {
+  background: #4c9540;
+}
+.nav-status-toggle:focus-visible {
+  outline: 2px solid #4c9540;
+  outline-offset: -3px;
+}
 
 /* Identidad visual Shizen compartida por todas las vistas. */
-html { background: #f0faf0; }
-body { background: #f9fefb; color: #1a1a1a; font-family: "Inter", sans-serif; }
-.bottom-nav { background: #fff; border-top-color: #e8f5e9; box-shadow: 0 -2px 8px rgba(0, 0, 0, .08); }
+html {
+  background: #f0faf0;
+}
+body {
+  background: #f9fefb;
+  color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+}
+.bottom-nav {
+  background: #fff;
+  border-top-color: #e8f5e9;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
 .bottom-nav .nav-item.is-active,
-.nav-status-toggle.is-online { color: #3a8c3f; }
-.nav-status-toggle.is-online .nav-status-icon { background: #3a8c3f; }
-.nav-status-icon { border-color: #f0faf0; }
-.card { border-color: #e8f5e9; box-shadow: 0 2px 8px rgba(0, 0, 0, .08); }
-.btn-green { background: linear-gradient(135deg, #2d6a31, #5cb85c); font-family: "Inter", sans-serif; }
-.btn-green:hover { background: #2d6a31; }
-.btn-gray { background: #e8f5e9; color: #2d6a31; font-family: "Inter", sans-serif; }
-.btn-gray:hover { background: #c8e6c9; }
+.nav-status-toggle.is-online {
+  color: #3a8c3f;
+}
+.nav-status-toggle.is-online .nav-status-icon {
+  background: #3a8c3f;
+}
+.nav-status-icon {
+  border-color: #f0faf0;
+}
+.card {
+  border-color: #e8f5e9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.btn-green {
+  background: linear-gradient(135deg, #2d6a31, #5cb85c);
+  font-family: "Inter", sans-serif;
+}
+.btn-green:hover {
+  background: #2d6a31;
+}
+.btn-gray {
+  background: #e8f5e9;
+  color: #2d6a31;
+  font-family: "Inter", sans-serif;
+}
+.btn-gray:hover {
+  background: #c8e6c9;
+}
 .actions button,
 .btn-green,
-.btn-gray { min-height: 44px; padding: 10px 14px; font-size: 13px; }
-.badge { display: none !important; }
-.field { font-family: "Inter", sans-serif; border-color: #c8e6c9; }
-.field:focus { border-color: #3a8c3f; }
-[style*="#f97316"] { color: #3a8c3f !important; }
-[style*="color:#4c9540"], [style*="color: #4c9540"] { color: #3a8c3f !important; }
-[style*="background:#4c9540"], [style*="background: #4c9540"] { background: linear-gradient(135deg, #2d6a31, #5cb85c) !important; }
-[style*="#2d6b22"] { background: linear-gradient(135deg, #2d6a31, #5cb85c) !important; }
-.header-back { background: #fff !important; border-bottom-color: #e8f5e9 !important; }
-.setting-item { background: #fff; border-bottom-color: #e8f5e9; }
+.btn-gray {
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: 13px;
+}
+.badge {
+  display: none !important;
+}
+.field {
+  font-family: "Inter", sans-serif;
+  border-color: #c8e6c9;
+}
+.field:focus {
+  border-color: #3a8c3f;
+}
+[style*="#f97316"] {
+  color: #3a8c3f !important;
+}
+[style*="color:#4c9540"],
+[style*="color: #4c9540"] {
+  color: #3a8c3f !important;
+}
+[style*="background:#4c9540"],
+[style*="background: #4c9540"] {
+  background: linear-gradient(
+    135deg,
+    #2d6a31,
+    #5cb85c
+  ) !important;
+}
+[style*="#2d6b22"] {
+  background: linear-gradient(
+    135deg,
+    #2d6a31,
+    #5cb85c
+  ) !important;
+}
+.header-back {
+  background: #fff !important;
+  border-bottom-color: #e8f5e9 !important;
+}
+.setting-item {
+  background: #fff;
+  border-bottom-color: #e8f5e9;
+}
