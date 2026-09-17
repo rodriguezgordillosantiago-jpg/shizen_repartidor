@@ -189,6 +189,9 @@
             style="
               padding: 14px 16px;
               border-bottom: 1px solid #f3f4f6;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
             "
           >
             <h2
@@ -200,9 +203,45 @@
             >
               Datos del Repartidor
             </h2>
+            <button
+              type="button"
+              id="btn-toggle-edit"
+              onclick="toggleEdicionPerfil()"
+              style="
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: #f0fdf4;
+                border: 1px solid #bbf7d0;
+                color: #166534;
+                padding: 6px 12px;
+                border-radius: 8px;
+                font-size: 13px;
+                font-weight: 600;
+                cursor: pointer;
+                font-family: 'Inter', sans-serif;
+              "
+            >
+              <svg
+                width="14"
+                height="14"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                />
+              </svg>
+              <span id="btn-toggle-edit-text">Editar</span>
+            </button>
           </div>
 
           <form
+            id="form-perfil"
             action="perfil.php"
             method="POST"
             style="padding: 16px"
@@ -218,12 +257,15 @@
             >
               <small>Nombre</small>
               <input
+                id="campo-nombre"
                 class="field"
                 type="text"
                 name="nombre"
                 value="{{NOMBRE}}"
                 maxlength="100"
                 required
+                readonly
+                style="background: #f9fafb; color: #374151; border-color: #e5e7eb; transition: all 0.2s;"
               />
             </label>
             <label
@@ -232,12 +274,15 @@
             >
               <small>Apellido</small>
               <input
+                id="campo-apellido"
                 class="field"
                 type="text"
                 name="apellido"
                 value="{{APELLIDO}}"
                 maxlength="100"
                 required
+                readonly
+                style="background: #f9fafb; color: #374151; border-color: #e5e7eb; transition: all 0.2s;"
               />
             </label>
             <label
@@ -252,13 +297,19 @@
                 type="email"
                 value="{{EMAIL}}"
                 readonly
-                style="background: #f9fafb; color: #6b7280"
+                style="background: #f9fafb; color: #6b7280; border-color: #e5e7eb"
               />
             </label>
+            <input
+              type="hidden"
+              name="vehiculo"
+              value="{{VEHICULO}}"
+            />
             <button
+              id="btn-guardar-perfil"
               type="submit"
               class="btn-green"
-              style="margin-top: 8px"
+              style="display: none; margin-top: 8px"
             >
               Guardar datos personales
             </button>
@@ -692,5 +743,48 @@
         <span>Perfil</span>
       </a>
     </nav>
+
+    <script>
+      let editando = false;
+      function toggleEdicionPerfil() {
+        editando = !editando;
+        const btnToggle = document.getElementById("btn-toggle-edit");
+        const btnText = document.getElementById("btn-toggle-edit-text");
+        const btnGuardar = document.getElementById("btn-guardar-perfil");
+        const inputNombre = document.getElementById("campo-nombre");
+        const inputApellido = document.getElementById("campo-apellido");
+
+        if (!btnToggle || !inputNombre || !inputApellido) return;
+
+        if (editando) {
+          inputNombre.removeAttribute("readonly");
+          inputApellido.removeAttribute("readonly");
+          inputNombre.style.background = "#ffffff";
+          inputApellido.style.background = "#ffffff";
+          inputNombre.style.borderColor = "#4c9540";
+          inputApellido.style.borderColor = "#4c9540";
+          if (btnGuardar) btnGuardar.style.display = "flex";
+          if (btnText) btnText.textContent = "Cancelar";
+          btnToggle.style.background = "#fef2f2";
+          btnToggle.style.borderColor = "#fecaca";
+          btnToggle.style.color = "#dc2626";
+          inputNombre.focus();
+        } else {
+          inputNombre.setAttribute("readonly", "true");
+          inputApellido.setAttribute("readonly", "true");
+          inputNombre.value = inputNombre.defaultValue;
+          inputApellido.value = inputApellido.defaultValue;
+          inputNombre.style.background = "#f9fafb";
+          inputApellido.style.background = "#f9fafb";
+          inputNombre.style.borderColor = "#e5e7eb";
+          inputApellido.style.borderColor = "#e5e7eb";
+          if (btnGuardar) btnGuardar.style.display = "none";
+          if (btnText) btnText.textContent = "Editar";
+          btnToggle.style.background = "#f0fdf4";
+          btnToggle.style.borderColor = "#bbf7d0";
+          btnToggle.style.color = "#166534";
+        }
+      }
+    </script>
   </body>
 </html>
