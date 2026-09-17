@@ -7,7 +7,7 @@ function initChat() {
   root.innerHTML = `
     <!-- FAB button -->
     <button id="chat-fab" onclick="openChat()"
-      style="position:fixed;bottom:84px;right:14px;width:52px;height:52px;
+      style="position:absolute;bottom:76px;right:14px;width:52px;height:52px;
              background:linear-gradient(135deg,#4c9540,#2d6b22);
              border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;
              box-shadow:0 4px 16px rgba(76,149,64,.45);cursor:pointer;z-index:50;
@@ -22,7 +22,7 @@ function initChat() {
 
     <!-- Chat panel -->
     <div id="chat-panel"
-      style="position:fixed;bottom:68px;left:0;right:0;height:400px;background:white;
+      style="position:absolute;bottom:68px;left:0;right:0;height:400px;background:white;
              border-radius:20px 20px 0 0;box-shadow:0 -8px 32px rgba(0,0,0,.15);
              display:none;flex-direction:column;z-index:51;overflow:hidden">
 

@@ -1,6 +1,5 @@
 .bottom-nav {
-  position: fixed;
-  bottom: 0;
+  position: static;
   left: 50%;
   z-index: 40;
   display: flex;
@@ -8,7 +7,8 @@
   width: min(100%, 375px);
   height: 68px;
   padding: 0 8px;
-  transform: translateX(-50%);
+  transform: none;
+  margin: 0 auto;
   background: #fff;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
