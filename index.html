@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Shizen Repartidor — Iniciar sesión</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="pages/styles/login.css" />
+  </head>
+
+  <body>
+    <!-- Fondo superior -->
+    <div class="blob-wrap">
+      <svg
+        viewBox="0 0 375 332"
+        preserveAspectRatio="none"
+        class="blob"
+      >
+        <path
+          d="M0,0 L375,0 L375,220 C375,220 340,280 280,260 C220,240 180,290 120,270 C60,250 0,300 0,260 Z"
+          fill="#2d6a31"
+        />
+
+        <path
+          d="M310,268 C310,268 345,258 355,270 C365,282 348,292 335,285 C322,278 310,268 310,268 Z"
+          fill="#5cb85c"
+        />
+      </svg>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo-container">
+      <img
+        src="assets/logo_blanco.png"
+        alt="Shizen"
+        class="logo"
+      />
+    </div>
+
+    <!-- Título -->
+    <div class="welcome-text">
+      <p class="welcome-title">Inicia sesión</p>
+
+      <p class="welcome-description">
+        Ingresa tu correo electrónico
+      </p>
+    </div>
+
+    <!-- Formulario -->
+    <form action="auth/login.php" method="POST">
+      <!-- Correo -->
+      <div class="input-container">
+        <div class="input-box">
+          <input
+            name="email"
+            type="email"
+            placeholder="Correo electrónico"
+            autocomplete="email"
+            maxlength="254"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="input-container">
+        <div class="input-box">
+          <input
+            name="password"
+            type="password"
+            placeholder="Contraseña"
+            autocomplete="current-password"
+            minlength="6"
+            maxlength="255"
+            required
+          />
+        </div>
+      </div>
+
+      <p id="login-error" style="color: #ef4444; font-size: 13px; text-align: center; margin-bottom: 12px; font-weight: 600;" hidden>
+        Credenciales incorrectas.
+      </p>
+
+      <!-- Botón -->
+      <div class="button-container">
+        <button
+          type="submit"
+          class="btn-green"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+          "
+        >
+          Continuar
+        </button>
+      </div>
+    </form>
+
+    <!-- Crear cuenta -->
+    <div class="create-account">
+      <p>
+        ¿No tienes cuenta?
+        <br />
+
+        <a href="../shizenhome/#registro">
+          Crea una ahora y disfruta los beneficios
+        </a>
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   DOCUMENTO
+   ========================= */
+
+html {
+  min-height: 100%;
+  background: #f0faf0;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: min(100%, 375px);
+  height: 812px;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================
+   FONDO / BLOB
+   ========================= */
+
+.blob-wrap {
+  position: absolute;
+  top: -6px;
+  left: -3px;
+  width: 381px;
+  height: 340px;
+  pointer-events: none;
+  transform-origin: bottom center;
+  animation: blobPulse 6s ease-in-out infinite;
+}
+
+.blob {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes blobPulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.018);
+  }
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.logo-container {
+  position: absolute;
+  top: 72px;
+  left: 26px;
+  right: 26px;
+  height: 190px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================
+   TEXTO DE BIENVENIDA
+   ========================= */
+
+.welcome-text {
+  position: absolute;
+  top: 315px;
+  left: 0;
+  right: 0;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.welcome-title {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.welcome-description {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #666666;
+}
+
+/* =========================
+   INPUTS
+   ========================= */
+
+.input-container {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+}
+
+/* Correo */
+.input-container:first-of-type {
+  top: 404px;
+}
+
+/* Contraseña */
+.input-container:nth-of-type(2) {
+  top: 460px;
+}
+
+.input-box {
+  width: 100%;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1.5px solid #c8e6c9;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.input-box.focused {
+  border-color: #3a8c3f;
+  box-shadow: 0 0 0 3px rgba(58, 140, 63, 0.12);
+}
+
+.input-box input {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+
+  padding: 0 14px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #1a1a1a;
+}
+
+.input-box input::placeholder {
+  color: #a0a0a0;
+}
+
+/* =========================
+   BOTÓN
+   ========================= */
+
+.button-container {
+  position: absolute;
+  top: 516px;
+  left: 24px;
+  right: 24px;
+}
+
+.btn-green {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 46px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #2d6a31, #5cb85c);
+  color: #ffffff;
+
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    transform 0.1s;
+}
+
+.btn-green:hover {
+  background: #2d6a31;
+}
+
+.btn-green:active {
+  transform: scale(0.98);
+}
+/* =========================
+   CREAR CUENTA
+   ========================= */
+
+.create-account {
+  position: absolute;
+  top: 580px;
+  left: 0;
+  right: 0;
+
+  padding: 0 24px;
+
+  text-align: center;
+}
+
+.create-account p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  color: #888888;
+}
+
+.create-account a {
+  color: #3a8c3f;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.create-account a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   TOAST
+   ========================= */
+
+.toast-wrap {
+  position: absolute;
+
+  top: 658px;
+  left: 24px;
+  right: 24px;
+
+  display: none;
+}
+
+.toast {
+  padding: 10px 16px;
+
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #2d6a31, #5cb85c);
+  color: #ffffff;
+
+  font-size: 13px;
+
+  text-align: center;
+
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (min-width: 376px) {
+  body {
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@media (max-width: 374px) {
+  .blob-wrap {
+    width: calc(100% + 6px);
+  }
+}

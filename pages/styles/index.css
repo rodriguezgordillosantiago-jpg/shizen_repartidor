@@ -1,0 +1,95 @@
+/* ===== Fondo decorativo (blob) ===== */
+.blob-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 332px;
+}
+
+/* ===== Logo ===== */
+.login-logo-wrap {
+  position: absolute;
+  top: 72px;
+  left: 26px;
+  right: 26px;
+  height: 190px;
+}
+
+.login-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ===== Encabezado de texto ===== */
+.login-heading {
+  position: absolute;
+  top: 315px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.login-heading__title {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.login-heading__subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===== Campo de correo ===== */
+.login-field-wrap {
+  position: absolute;
+  top: 404px;
+  left: 24px;
+  right: 24px;
+}
+
+/* ===== Botón continuar ===== */
+.login-btn-wrap {
+  position: absolute;
+  top: 460px;
+  left: 24px;
+  right: 24px;
+}
+
+/* ===== Enlace "crear cuenta" ===== */
+.login-footer {
+  position: absolute;
+  top: 520px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.login-footer p {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+}
+
+.login-footer a {
+  color: #4c9540;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===== Toast de mensajes ===== */
+.login-toast-wrap {
+  position: absolute;
+  top: 598px;
+  left: 24px;
+  right: 24px;
+  display: none;
+}

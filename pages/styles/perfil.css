@@ -1,0 +1,628 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: #e5e7eb;
+}
+
+body {
+  margin: 0 auto;
+  width: min(100%, 375px);
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: #f3f4f6;
+  font-family: "Inter", sans-serif;
+  position: relative;
+}
+
+.scroll {
+  height: 100%;
+  overflow-y: auto;
+  padding: 40px 16px 88px;
+  scrollbar-width: none;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== Navegación ===== */
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 0;
+  text-decoration: none;
+  position: relative;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 375px);
+  height: 68px;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  z-index: 40;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: calc(50% - 18px);
+  background: #f97316;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  border-radius: 999px;
+  min-width: 15px;
+  height: 15px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+/* ===== Tarjetas ===== */
+
+.card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ===== Botones ===== */
+
+.btn-green,
+.btn-gray {
+  border: 0;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-green {
+  background: #4c9540;
+  color: #fff;
+}
+
+.btn-green:hover {
+  background: #3d7a33;
+}
+
+.btn-gray {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.btn-gray:hover {
+  background: #e5e7eb;
+}
+
+/* ===== Header de perfil ===== */
+
+.profile-header {
+  background: linear-gradient(135deg, #4c9540, #2d6b22);
+  margin: -40px -16px 16px;
+  padding: 36px 20px 28px;
+  text-align: center;
+  color: white;
+}
+
+.profile-header__logo {
+  width: 140px;
+  height: 52px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.profile-header__avatar {
+  margin: 8px auto;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  color: #4c9540;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.profile-header__name {
+  font-size: 20px;
+  margin: 8px 0 2px;
+}
+
+.profile-header__meta {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* ===== Datos personales ===== */
+
+.card__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.card__edit-btn {
+  border: 0;
+  background: none;
+  color: #4c9540;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 13px;
+  user-select: none;
+}
+
+.profile-modal[hidden] {
+  display: none;
+}
+
+.profile-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.profile-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 35, 15, .72);
+}
+
+.profile-modal__content {
+  position: relative;
+  width: min(100%, 343px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #c8e6c9;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+}
+
+.profile-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #e8f5e9;
+}
+
+.profile-modal__header h2 {
+  margin: 0;
+  color: #1b3a1d;
+  font-size: 18px;
+}
+
+.profile-modal__close {
+  border: 0;
+  background: none;
+  color: #666;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.card__edit-btn--cancel {
+  color: #9ca3af;
+  display: none;
+}
+
+.card__details {
+  padding: 4px 16px 12px;
+}
+
+.profile-row--editable {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #e8f5e9;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.profile-row--editable:hover {
+  background: #f9fefb;
+}
+
+.profile-row__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-row__content small {
+  display: block;
+  margin-bottom: 3px;
+  color: #666;
+  font-size: 12px;
+}
+
+.profile-row__content strong {
+  display: block;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profile-row__icon {
+  font-size: 18px;
+}
+
+.profile-row__edit {
+  color: #3a8c3f;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card__details small {
+  color: #9ca3af;
+}
+
+/* ===== Toggle de edición (checkbox oculto, sin JS) ===== */
+
+.edit-toggle-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+}
+
+/* Estado por defecto: se ve la vista, el form de edición está oculto */
+.card__details--edit {
+  display: none;
+}
+
+/* Cuando el checkbox está marcado -> modo edición activo */
+.edit-toggle-checkbox:checked ~ .card__details--view {
+  display: none;
+}
+
+.edit-toggle-checkbox:checked ~ .card__details--edit {
+  display: grid;
+  gap: 12px;
+}
+
+.edit-toggle-checkbox:checked
+  ~ .card__title-row
+  .card__edit-btn--edit {
+  display: none;
+}
+
+.edit-toggle-checkbox:checked
+  ~ .card__title-row
+  .card__edit-btn--cancel {
+  display: inline-block;
+}
+
+/* Foco visible al navegar con teclado (accesibilidad) */
+.edit-toggle-checkbox:focus-visible
+  ~ .card__title-row
+  .card__edit-btn--edit {
+  outline: 2px solid #4c9540;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ===== Formulario de edición ===== */
+
+.profile-form {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-top: 1px solid #e8f5e9;
+}
+
+.profile-form .field-group {
+  margin: 0;
+}
+
+.field-group {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.field-group small {
+  display: block;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.field {
+  width: 100%;
+  height: 42px;
+  border: 1px solid #c8e6c9;
+  border-radius: 10px;
+  padding: 0 12px;
+  background: #fff;
+  font: 500 13px "Inter", sans-serif;
+  outline: none;
+  color: #1f2937;
+}
+
+.field:focus {
+  border-color: #3a8c3f;
+  box-shadow: 0 0 0 3px rgba(58, 140, 63, .12);
+}
+
+.field[readonly] {
+  background: #f0faf0;
+  color: #555;
+  cursor: not-allowed;
+}
+
+select.field {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='m6 9 6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.field-save {
+  display: block;
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+}
+
+.vehicle-documents {
+  display: grid;
+  gap: 12px;
+}
+
+.documents-card {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e8f5e9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.profile-alert {
+  margin: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.profile-alert--success {
+  color: #2d6a31;
+  background: #f0faf0;
+  border: 1px solid #c8e6c9;
+}
+
+.profile-alert--error {
+  color: #8f2525;
+  background: #fff5f5;
+  border: 1px solid #f1c7c7;
+}
+
+.documents-card .section-title {
+  margin: 0 0 12px;
+}
+
+.vehicle-document-card {
+  padding: 12px;
+  background: #f9fefb;
+  border: 1px solid #c8e6c9;
+  border-radius: 10px;
+}
+
+.vehicle-document-card label {
+  display: block;
+  margin-bottom: 4px;
+  color: #2d6a31;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vehicle-document-card .field {
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 400;
+}
+
+.vehicle-document-card img {
+  display: block;
+  width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.vehicle-document-card a {
+  display: block;
+  color: #3a8c3f;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ===== Estadísticas ===== */
+
+.stats-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.stats-row .card {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+}
+
+.stats-row small {
+  color: #9ca3af;
+}
+
+.stats-row .stat--entregas {
+  color: #4c9540;
+}
+
+.stats-row .stat--ganancias {
+  color: #f97316;
+}
+
+/* ===== Estado del repartidor ===== */
+
+.status-card {
+  margin-top: 16px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-card small {
+  color: #9ca3af;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.status-dot--active {
+  background: #4c9540;
+}
+
+.status-dot--inactive {
+  background: #9ca3af;
+}
+
+.status-label--active {
+  color: #2d6b22;
+}
+
+.status-label--inactive {
+  color: #4b5563;
+}
+
+/* ===== Pedidos ===== */
+
+.order {
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.order-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+
+.order-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  margin: 0 0 2px;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.muted {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.earn {
+  text-align: right;
+  flex: none;
+}
+
+.earn strong {
+  display: block;
+  color: #4c9540;
+  font-size: 14px;
+}
+
+.earn span {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.route {
+  margin: 12px 0;
+  padding: 10px 0;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 11px;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  height: 36px;
+  flex: 1;
+  font-size: 12px;
+}
+
+/* ===== Responsive ===== */
+
+@media (min-width: 376px) {
+  body {
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.12);
+  }
+}
